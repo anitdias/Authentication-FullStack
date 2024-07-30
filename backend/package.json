@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/anitdias/Authentication-FullStack#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "jsonwebtoken": "^9.0.2"
   }
 }

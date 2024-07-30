@@ -4,7 +4,9 @@ const {validate} = require("./middlewares.js");
 const {database} = require("./database.js");
 const jwt = require("jsonwebtoken");
 const jwtPassword = "12345";
+const cors = require('cors');
 app.use(express.json());
+app.use(cors());
 
 app.post('/signup', validate, async function(req,res){
   const credentials = req.body;
