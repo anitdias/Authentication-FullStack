@@ -1,13 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
+import Card from './card';
+import {useSetRecoilState} from 'recoil';
+import {token} from './../store/atoms/token'
 
 
 
 export function Login(){
   const [username,setUsername] = useState("");
   const [password,setPassword] = useState("");
-  const [token,setToken] = useState("");
+  const setToken = useSetRecoilState(token);
+  
   return <div>
+  <Card>
     <h2 style={{
       color: "#0000ff80",
       fontFamily: "Lucida Console",
@@ -53,9 +58,10 @@ export function Login(){
 
         axios.get(url,data)
         .then(response =>{
+          setToken(response.data.token);
           console.log("User Logged in")
-          setToken(response.body.token);
-        
+          
+          
         })
         
 
@@ -63,6 +69,7 @@ export function Login(){
       }}>Log In
 
     </div>
+    </Card>
 
 
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Card from './card';
 
 
 
@@ -8,6 +9,7 @@ export function SignUp(){
   const [password,setPassword] = useState("");
 
   return <div>
+  <Card>
     <h2 style={{
       color: "#0000ff80",
       fontFamily: "Lucida Console",
@@ -60,7 +62,7 @@ export function SignUp(){
       }}>Sign Up
 
     </div>
-
+</Card>
 
 
 

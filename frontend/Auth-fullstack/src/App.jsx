@@ -1,46 +1,41 @@
-import PropTypes from 'prop-types';
+
 import {SignUp} from './components/signup'
 import {Login} from './components/login'
+import{useNavigate, BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
 function App() {
 
-
-  return <div style={{
-    backgroundColor: 'white',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh'}}>
+  console.log("rendering")
+  return <div>
     
-    <Card>
-      <SignUp></SignUp>
-    </Card>
-    <Card>
-      <Login></Login>
-    </Card>
+    <BrowserRouter>
+    <AppBar></AppBar>
+      <Routes>
+        <Route path = "/" element = {<SignUp/>} />
+        <Route path = "/login" element = {<Login/>} />
+      </Routes>
+    </BrowserRouter>
     
   </div>
  
 }
 
-function Card({children}){
-  return <div style={{
-    border: "1px grey solid",
-    padding: "30px",
-    boxShadow: "2px 2px 5px 2px #888888",
-    borderRadius: "3px",
-    margin:'20px'
+function AppBar(){
+  const navigate = useNavigate();
+  return <div>
+    <button onClick={() =>{
+      navigate("/");
+    }}>Sign Up</button>
 
-  }}>
-    {children}
+<button onClick={() =>{
+      navigate("/login");
+    }}>Log In</button>
   </div>
-
 }
 
-Card.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+
+
 
 
 export default App
